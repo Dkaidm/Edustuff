@@ -31,9 +31,6 @@
         padding: 5px;
         cursor: pointer;
     }
-    .content-wrapper {
-        margin-top: 60px;
-    }
 </style>
 </head>
 <body>
@@ -66,10 +63,9 @@
             </button>
 
             <div id="search-container">
-                <form id="uv-form" onsubmit="event.preventDefault(); setIframeLink();">
+                <form id="uv-form">
                     <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/>
                     <input id="uv-address" type="text" class="search-bar-home" placeholder="Start by inputting a link or searching with UV..." />
-                    <button id="search-button"><i class="fas fa-search"></i></button>
                 </form>
             </div>
         </div>
@@ -78,19 +74,8 @@
     </div>
 
     <div class="content-wrapper">
-        <iframe id="iframe" src="/static/index.html" width="100%" height="600px"></iframe>
+        <iframe src="/static/index.html"></iframe>
     </div>
-
-    <script>
-        function setIframeLink() {
-            var link = document.getElementById('uv-address').value;
-            var iframe = document.getElementById('iframe');
-            if (link) {
-                iframe.src = link;
-            }
-        }
-    </script>
-
     <script src="/storage/js/script.js"></script>
 </body>
 </html>
