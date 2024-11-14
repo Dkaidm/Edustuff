@@ -52,7 +52,7 @@
 
     <div class="navbar">
         <div class="navbar-left">
-            <button onclick="document.querySelector('iframe').src = document.querySelector('#uv-address').value">
+            <button onclick="document.querySelector('iframe').contentWindow.location.reload()">
                 <i class="fas fa-redo"></i>
             </button>
             <button onclick="document.querySelector('iframe').contentWindow.history.back()">
@@ -63,7 +63,7 @@
             </button>
 
             <div id="search-container">
-                <form id="uv-form">
+                <form id="uv-form" onsubmit="event.preventDefault(); updateIframe();">
                     <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/>
                     <input id="uv-address" type="text" class="search-bar-home" placeholder="Start by inputting a link or searching with UV..." />
                 </form>
@@ -76,6 +76,18 @@
     <div class="content-wrapper">
         <iframe src="/static/index.html"></iframe>
     </div>
+
+    <script>
+        function updateIframe() {
+            var address = document.querySelector('#uv-address').value;
+            if (address) {
+                var encodedAddress = encodeURIComponent(address);
+                var uvStaticUrl = '/static/uv/' + encodedAddress;
+                document.querySelector('iframe').src = uvStaticUrl;
+            }
+        }
+    </script>
+    
     <script src="/storage/js/script.js"></script>
 </body>
 </html>
