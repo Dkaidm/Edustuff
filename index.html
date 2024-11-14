@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Proxy</title>
+    <title>Web Proxy</title>
     <link rel="icon" type="image/x-icon" href="https://us4-ubg.github.io/logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -58,7 +58,7 @@
             <button onclick="history.back()"><i class="fas fa-arrow-left"></i></button>
             <button onclick="history.forward()"><i class="fas fa-arrow-right"></i></button>
             <button onclick="location.reload()"><i class="fas fa-redo"></i></button>
-            <form id="uv-form" style="display: flex; flex: 1;">
+            <form id="uv-form" style="display: flex; flex: 1; margin-left: 10px;">
                 <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
                 <input id="uv-address" type="text" class="search-bar-home" placeholder="Start by inputting a link or searching with UV..." />
                 <button id="search-button" onclick="submitSearch()" type="button" style="display: none;"></button>
@@ -70,9 +70,9 @@
         <iframe id="webFrame"></iframe>
     </div>
 
-    <script src="https://proxy-us4.pages.dev/static/uv/uv.bundle.js" defer></script>
-    <script src="https://proxy-us4.pages.dev/static/uv/uv.config.js" defer></script>
-    <script src="https://proxy-us4.pages.dev/static/register-sw.js" defer></script>
+    <script src="/static/uv/uv.bundle.js" defer></script>
+    <script src="/static/uv/uv.config.js" defer></script>
+    <script src="/static/register-sw.js" defer></script>
     <script>
         const uv = new UVServiceWorker();
 
@@ -80,6 +80,7 @@
             const input = document.getElementById('uv-address');
             const url = input.value.trim();
             if (url) {
+
                 const proxiedUrl = uv.createURL(url.startsWith('http') ? url : `https://${url}`);
                 document.getElementById('webFrame').src = proxiedUrl;
             }
