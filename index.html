@@ -52,7 +52,7 @@
 
     <div class="navbar">
         <div class="navbar-left">
-            <button onclick="document.querySelector('iframe').contentWindow.location.reload()">
+            <button onclick="document.querySelector('iframe').src = document.querySelector('#uv-address').value">
                 <i class="fas fa-redo"></i>
             </button>
             <button onclick="document.querySelector('iframe').contentWindow.history.back()">
