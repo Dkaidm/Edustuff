@@ -23,17 +23,21 @@
                 <img src="https://us4-ubg.github.io/logo.png" class="logo">
                 <p class="nav-text">Proxy</p>
             </a>
+            <button onclick="document.querySelector('iframe').contentWindow.location.reload()">
+                <i class="fas fa-redo"></i>
+            </button>
+            <button onclick="document.querySelector('iframe').contentWindow.history.back()">
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <button onclick="document.querySelector('iframe').contentWindow.history.forward()">
+                <i class="fas fa-arrow-right"></i>
+            </button>
         </div>
         <div class="navbar-right">
         </div>
     </div>
 
     <div class="content-wrapper">
-        <div class="button-panel">
-            <button onclick="document.querySelector('iframe').contentWindow.location.reload()">Reload</button>
-            <button onclick="document.querySelector('iframe').contentWindow.history.back()">Back</button>
-            <button onclick="document.querySelector('iframe').contentWindow.history.forward()">Forward</button>
-        </div>
         <iframe src="/static/index.html"></iframe>
     </div>
     <script src="/storage/js/script.js"></script>
