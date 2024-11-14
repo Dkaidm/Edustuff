@@ -29,9 +29,13 @@
     </div>
 
     <div class="content-wrapper">
+        <div class="button-panel">
+            <button onclick="document.querySelector('iframe').contentWindow.location.reload()">Reload</button>
+            <button onclick="document.querySelector('iframe').contentWindow.history.back()">Back</button>
+            <button onclick="document.querySelector('iframe').contentWindow.history.forward()">Forward</button>
+        </div>
         <iframe src="/static/index.html"></iframe>
     </div>
     <script src="/storage/js/script.js"></script>
-</script>
 </body>
 </html>
