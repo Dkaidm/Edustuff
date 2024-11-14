@@ -16,9 +16,27 @@
         .navbar-left button:hover {
             opacity: 0.8;
         }
+        #search-container {
+            display: inline-block;
+            margin-left: 20px;
+        }
+        .search-bar-home {
+            padding: 5px;
+            width: 300px;
+        }
+        #search-button {
+            padding: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
+
+    <script src="/static/uv/uv.bundle.js" defer></script>
+    <script src="/static/uv/uv.config.js" defer></script>
+    <script src="/static/register-sw.js" defer></script>
+    <script src="/static/search.js" defer></script>
+    <script src="/static/index.js" defer></script>
 
     <div id="loading-screen">
         <div class="dots">
@@ -40,7 +58,14 @@
             <button onclick="document.querySelector('iframe').contentWindow.history.forward()">
                 <i class="fas fa-arrow-right"></i>
             </button>
-            </a>
+
+            <div id="search-container">
+                <form id="uv-form">
+                    <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/>
+                    <input id="uv-address" type="text" class="search-bar-home" placeholder="Start by inputting a link or searching with UV..." />
+                    <button id="search-button" onclick="submitSearch()">SEARCH <i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
         </div>
         <div class="navbar-right">
         </div>
