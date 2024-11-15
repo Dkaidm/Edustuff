@@ -12,7 +12,7 @@ if (savedTitle) {
 
 const savedLogo = localStorage.getItem('siteLogo');
 if (savedLogo) {
-    const logoElement = document.querySelector('link[rel="icon"]'); 
+    const logoElement = document.querySelector('link[rel="icon"]');
     if (logoElement) {
         logoElement.href = savedLogo;
     }
@@ -31,7 +31,6 @@ if (panicKey && panicUrl) {
 const autocloak = localStorage.getItem('autocloak');
 if (autocloak) {
     window.onload = function() {
-
         const newTab = window.open('about:blank', '_blank');
         if (newTab) {
             const iframe = document.createElement('iframe');
@@ -42,7 +41,6 @@ if (autocloak) {
             newTab.document.body.style.margin = '0';
             newTab.document.body.appendChild(iframe);
         }
-
 
         const panicUrl = localStorage.getItem('panicUrl') || "https://classroom.google.com";
         window.location.href = panicUrl;
