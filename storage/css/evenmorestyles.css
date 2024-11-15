@@ -1,6 +1,6 @@
 body {
     color: #fff;
-    background-color: #1a1a1a;
+    background: url('/storage/images/full-main.png') repeat center center fixed;
     font-family: "Outfit", sans-serif;
     display: flex;
     flex-direction: column;
