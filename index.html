@@ -148,7 +148,7 @@
             <button onclick="toggleNavbar()">
                 <i class="fas fa-expand"></i>
             </button>
-            <button onclick="window.location.href = '/settings'">
+            <button onclick="settings()">
                 <i class="fa fa-cog"></i>
             </button>
         </div>
@@ -178,6 +178,10 @@
             if (input) {
                 const url = input.startsWith('http') ? input : `https://google.com/search?q=${encodeURIComponent(input)}`;
                 iframe.src = `/static/embed#${url}`;
+            }
+        function settings() {
+            const iframe = document.getElementById('proxy-iframe');
+                iframe.src = `/settings`;
             }
         }
     </script>
