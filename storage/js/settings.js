@@ -29,7 +29,7 @@ if (panicKey && panicUrl) {
     });
 }
 
-const autocloak = localStorage.getItem('autocloakEnabled');
+const autocloak = localStorage.getItem('autocloakEnabled') === 'true';
 if (autocloak) {
     window.onload = function() {
         const newTab = window.open('about:blank', '_blank');
