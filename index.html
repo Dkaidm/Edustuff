@@ -14,9 +14,6 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-            font-family: "Outfit", sans-serif;
-            background-color: #1a1a1a;
-            color: #f5f5f5;
         }
 
         .navbar {
@@ -24,7 +21,7 @@
             align-items: center;
             justify-content: space-between;
             background-color: #333;
-            padding: 10px 20px;
+            padding: 10px;
             position: fixed;
             top: 0;
             width: 100%;
@@ -37,14 +34,16 @@
             background-color: transparent;
             border: none;
             cursor: pointer;
-            color: #FFD700;
-            margin-right: 15px;
-            transition: color 0.3s ease;
+            color: white;
+            margin-right: 10px;
         }
 
-        .navbar-left button:hover {
+        .navbar-left button i {
+            color: gold; /* Gold color for icons */
+        }
+
+        .navbar-left button:hover i {
             opacity: 0.8;
-            color: #e6c34e;
         }
 
         .navbar.hidden {
@@ -55,8 +54,7 @@
             flex-grow: 1;
             overflow: hidden;
             position: relative;
-            margin-top: 60px;
-            height: calc(100vh - 60px);
+            height: 100%;
         }
 
         iframe {
@@ -64,7 +62,6 @@
             height: 100%;
             border: none;
             display: block;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .show-navbar-button {
@@ -74,72 +71,18 @@
             background-color: transparent;
             border: none;
             font-size: 30px;
-            color: #FFD700;
+            color: white;
             cursor: pointer;
             display: none;
             z-index: 2000;
-            transition: color 0.3s ease;
+        }
+
+        .show-navbar-button i {
+            color: gold;
         }
 
         .navbar.hidden + .show-navbar-button {
             display: block;
-        }
-
-        .show-navbar-button:hover {
-            color: #e6c34e;
-        }
-
-        #loading-screen {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-        }
-
-        .dots {
-            display: flex;
-            gap: 10px;
-        }
-
-        .dot {
-            width: 15px;
-            height: 15px;
-            border-radius: 50%;
-            background-color: #FFD700;
-            animation: dotAnimation 1.5s infinite ease-in-out;
-        }
-
-        .dot:nth-child(2) {
-            animation-delay: 0.3s;
-        }
-
-        .dot:nth-child(3) {
-            animation-delay: 0.6s;
-        }
-
-        @keyframes dotAnimation {
-            0% {
-                opacity: 0.3;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0.3;
-            }
-        }
-
-        #fetching-text {
-            color: #FFD700;
-            font-size: 1.2rem;
-            font-weight: 500;
-            margin-top: 20px;
         }
 
     </style>
@@ -158,7 +101,7 @@
             <div class="dot"></div>
             <div class="dot"></div>
         </div>
-        <h5 id="fetching-text"></h5>
+        <h5 id="fetching-text">Fetching assets</h5>
     </div>
 
     <div class="navbar" id="navbar">
