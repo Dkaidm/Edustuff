@@ -170,9 +170,8 @@
 
         function performSearch() {
             const input = document.getElementById('search-input').value;
-            const template = "https://example.com/search?q=%s";
-            const searchUrl = search(input, template);
-            document.getElementById('proxy-iframe').src = searchUrl;
+            const url = new URL(`http://${input}`);
+            document.getElementById('proxy-iframe').src = url.toString();
         }
 
         function search(input, template) {
@@ -187,6 +186,12 @@
 
             return template.replace("%s", encodeURIComponent(input));
         }
+
+        document.getElementById('search-input').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
     </script>
 
     <script src="/storage/js/script.js"></script>
