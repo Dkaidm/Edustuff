@@ -5,6 +5,30 @@
     <title>Proxy</title>
     <link rel="stylesheet" href="/storage/css/evenmorestyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* New CSS to align search bar and button */
+        #search-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        #uv-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-bar-home {
+            padding: 10px;
+            margin-right: 10px; /* Add space between input and button */
+        }
+
+        #search-button {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,7 +38,7 @@
     <div id="search-container">
         <form id="uv-form">
             <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/>
-            <input id="uv-address" type="text" class="search-bar-home" placeholder="Seach or enter a URL" />
+            <input id="uv-address" type="text" class="search-bar-home" placeholder="Search or enter a URL" />
             <button id="search-button" onclick="submitSearch()">SEARCH <i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
          
