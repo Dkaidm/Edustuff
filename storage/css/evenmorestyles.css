@@ -1,6 +1,7 @@
 body {
     color: #fff;
-    background: url('/storage/images/full-main.png') repeat center center fixed;
+    background: url('/storage/images/full-main.png') center center fixed no-repeat;
+    background-size: cover;
     font-family: "Outfit", sans-serif;
     display: flex;
     flex-direction: column;
@@ -63,7 +64,7 @@ h1 {
 }
 
 .search-bar-home {
-    padding: 20px 30px; 
+    padding: 20px 30px;
     width: 350px;
     border: 2px solid #FFD700;
     background-color: rgba(0, 0, 0, 0.5);
