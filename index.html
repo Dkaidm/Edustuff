@@ -77,35 +77,6 @@
             display: block;
         }
 
-        .search-bar {
-            flex-grow: 1;
-            margin-left: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .search-bar input {
-            width: 100%;
-            padding: 8px;
-            font-size: 16px;
-            border: none;
-            border-radius: 4px;
-            margin-right: 10px;
-        }
-
-        .search-bar button {
-            padding: 8px 16px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .search-bar button:hover {
-            opacity: 0.8;
-        }
     </style>
 </head>
 <body>
@@ -140,11 +111,6 @@
                 <i class="fas fa-expand"></i>
             </button>
         </div>
-
-        <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Enter URL or query" />
-            <button onclick="performSearch()">Search</button>
-        </div>
     </div>
 
     <button class="show-navbar-button" id="show-navbar-button" onclick="toggleNavbar()">
@@ -167,31 +133,6 @@
                 showNavbarButton.style.display = "none";
             }
         }
-
-        function performSearch() {
-            const input = document.getElementById('search-input').value;
-            const url = new URL(`http://${input}`);
-            document.getElementById('proxy-iframe').src = url.toString();
-        }
-
-        function search(input, template) {
-            try {
-                return new URL(input).toString();
-            } catch (err) {}
-
-            try {
-                const url = new URL(`http://${input}`);
-                if (url.hostname.includes(".")) return url.toString();
-            } catch (err) {}
-
-            return template.replace("%s", encodeURIComponent(input));
-        }
-
-        document.getElementById('search-input').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                performSearch();
-            }
-        });
     </script>
 
     <script src="/storage/js/script.js"></script>
