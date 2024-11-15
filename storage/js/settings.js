@@ -30,7 +30,7 @@ if (panicKey && panicUrl) {
 }
 
 const autocloak = localStorage.getItem('autocloakEnabled');
-if (autocloakEnabled) {
+if (autocloak) {
     window.onload = function() {
         const newTab = window.open('about:blank', '_blank');
         if (newTab) {
