@@ -26,6 +26,10 @@
             z-index: 1000;
             transition: transform 0.3s ease;
         }
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
         .navbar-left button {
             font-size: 24px;
             background-color: transparent;
@@ -74,11 +78,13 @@
             display: block;
         }
         .search-bar {
+            flex-grow: 1;
             display: flex;
             align-items: center;
             border-radius: 25px;
             background-color: #000;
             border: 2px solid #FFD700;
+            margin-left: 20px;
             overflow: hidden;
         }
         .search-bar input {
@@ -113,6 +119,12 @@
     </style>
 </head>
 <body>
+
+    <script src="/static/uv/uv.bundle.js" defer></script>
+    <script src="/static/uv/uv.config.js" defer></script>
+    <script src="/static/register-sw.js" defer></script>
+    <script src="/static/search.js" defer></script>
+    <script src="/static/index.js" defer></script>
 
     <div id="loading-screen">
         <div class="dots">
