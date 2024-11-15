@@ -2,7 +2,7 @@
 
 body {
     color: #fff;
-    background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient background */
+    background-color: #1a1a1a; /* Black background */
     font-family: "Outfit", sans-serif;
     display: flex;
     flex-direction: column;
@@ -13,20 +13,6 @@ body {
     text-align: center;
     padding: 0 20px;
     overflow: hidden;
-    animation: backgroundAnimation 5s ease-in-out infinite;
-}
-
-/* Add a smooth background color animation */
-@keyframes backgroundAnimation {
-    0% {
-        background: linear-gradient(135deg, #00c6ff, #0072ff);
-    }
-    50% {
-        background: linear-gradient(135deg, #ff00d4, #ff3b88);
-    }
-    100% {
-        background: linear-gradient(135deg, #00c6ff, #0072ff);
-    }
 }
 
 h1 {
@@ -39,7 +25,6 @@ h1 {
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Adding a fade-in effect */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -61,7 +46,7 @@ h1 {
 }
 
 #dynamicParagraph:hover {
-    opacity: 1; /* Hover effect for the text */
+    opacity: 1;
     cursor: pointer;
 }
 
@@ -78,7 +63,7 @@ h1 {
     padding: 15px 20px;
     width: 400px;
     border: 2px solid #FFD700; 
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly transparent black */
     border-radius: 50px;
     font-family: "Outfit", sans-serif;
     outline: none;
@@ -135,7 +120,6 @@ iframe {
     border: none;
     display: block;
 }
-
 
 @media (max-width: 600px) {
     .search-bar-home {
