@@ -74,30 +74,45 @@
             display: block;
         }
         .search-bar {
-            flex-grow: 1;
-            margin-left: 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 25px;
+            background-color: #000;
+            border: 2px solid #FFD700;
+            overflow: hidden;
         }
         .search-bar input {
-            width: 100%;
-            padding: 5px;
-            border-radius: 15px;
-            border: 1px solid #555;
-            background-color: #ccc;
-            color: #333;
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 25px 0 0 25px;
+            background-color: transparent;
+            color: #ccc;
+            font-size: 16px;
+        }
+        .search-bar input::placeholder {
+            color: #888;
         }
         .search-bar input:focus {
             outline: none;
-            border-color: #777;
+        }
+        .search-bar button {
+            background-color: #FFD700;
+            border: none;
+            padding: 10px 20px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            border-radius: 0 25px 25px 0;
+        }
+        .search-bar button i {
+            margin-left: 5px;
         }
     </style>
 </head>
 <body>
-
-    <script src="/static/uv/uv.bundle.js" defer></script>
-    <script src="/static/uv/uv.config.js" defer></script>
-    <script src="/static/register-sw.js" defer></script>
-    <script src="/static/search.js" defer></script>
-    <script src="/static/index.js" defer></script>
 
     <div id="loading-screen">
         <div class="dots">
@@ -124,7 +139,10 @@
             </button>
         </div>
         <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Search or enter a link" onkeydown="if(event.key === 'Enter') search()">
+            <input type="text" id="search-input" placeholder="Search or enter a URL" onkeydown="if(event.key === 'Enter') search()">
+            <button onclick="search()">
+                SEARCH <i class="fas fa-search"></i>
+            </button>
         </div>
     </div>
 
