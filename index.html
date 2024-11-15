@@ -136,6 +136,9 @@
 <body>
     <div class="navbar" id="navbar">
         <div class="navbar-left">
+            <button onclick="home()">
+                <i class="fa fa-home"></i>
+            </button>
             <button onclick="document.querySelector('#proxy-iframe').contentWindow.location.reload()">
                 <i class="fas fa-redo"></i>
             </button>
@@ -182,6 +185,9 @@
         }
         function settings() {
             document.getElementById('proxy-iframe').src = `/settings`;
+        }
+        function home() {
+            document.getElementById('proxy-iframe').src = `/`;
         }
     </script>
     <script src="/storage/js/settings.js"></script>
