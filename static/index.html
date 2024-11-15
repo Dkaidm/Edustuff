@@ -1,92 +1,28 @@
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proxy</title>
-    <link rel="icon" type="image/x-icon" href="https://us4-ubg.github.io/logo.png">
+    <link rel="stylesheet" href="/storage/css/evenmorestyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body, html {
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .navbar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background-color: #333;
-            padding: 10px;
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-
-        .navbar-left button {
-            font-size: 24px;
-            background-color: transparent;
-            border: none;
-            cursor: pointer;
-            color: white;
-            margin-right: 10px;
-        }
-
-        .navbar-left button:hover {
-            opacity: 0.8;
-        }
-
-        .navbar.hidden {
-            transform: translateY(-100%);
-        }
-
-        .content-wrapper {
-            flex-grow: 1;
-            overflow: hidden;
-            position: relative;
-            height: 100%;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            display: block;
-        }
-
-        .show-navbar-button {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            background-color: transparent;
-            border: none;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-            display: none;
-            z-index: 2000;
-        }
-
-        .navbar.hidden + .show-navbar-button {
-            display: block;
-        }
-
-        .search-bar {
-            width: 50%;
-            padding: 8px;
-            margin-top: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-    </style>
 </head>
 <body>
+
+    <h1 style="margin: 0; padding-top: 40px;">Proxy</h1>
+    <p id="dynamicParagraph">gyatt</p>
+
+    <div id="search-container">
+        <form id="uv-form">
+            <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden"/>
+            <input id="uv-address" type="text" class="search-bar-home" placeholder="Start by inputting a link or searching with UV..." />
+            <button id="search-button" onclick="submitSearch()">SEARCH <i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+         
+        <div class="desc left-margin">
+            <p id="uv-error"></p>
+            <pre id="uv-error-code"></pre>
+        </div>
+    </div>
 
     <script src="/static/uv/uv.bundle.js" defer></script>
     <script src="/static/uv/uv.config.js" defer></script>
@@ -94,63 +30,23 @@
     <script src="/static/search.js" defer></script>
     <script src="/static/index.js" defer></script>
 
-    <div id="loading-screen">
-        <div class="dots">
-            <div class="dot"></div>
-            <div class="dot"></div>
-            <div class="dot"></div>
-        </div>
-        <h5 id="fetching-text">Fetching assets</h5>
-    </div>
-
-    <div class="navbar" id="navbar">
-        <div class="navbar-left">
-            <button onclick="document.querySelector('#proxy-iframe').contentWindow.location.reload()">
-                <i class="fas fa-redo"></i>
-            </button>
-            <button onclick="document.querySelector('#proxy-iframe').contentWindow.history.back()">
-                <i class="fas fa-arrow-left"></i>
-            </button>
-            <button onclick="document.querySelector('#proxy-iframe').contentWindow.history.forward()">
-                <i class="fas fa-arrow-right"></i>
-            </button>
-            <button onclick="toggleNavbar()">
-                <i class="fas fa-expand"></i>
-            </button>
-        </div>
-
-        <input type="text" class="search-bar" id="search-bar" placeholder="Enter URL and press Enter" onkeydown="changeIframeSrc(event)"/>
-    </div>
-
-    <button class="show-navbar-button" id="show-navbar-button" onclick="toggleNavbar()">
-        <i class="fas fa-arrow-down"></i>
-    </button>
-
-    <div class="content-wrapper" id="content-wrapper">
-        <iframe id="proxy-iframe" src="/static/index.html"></iframe>
-    </div>
-
     <script>
-        function toggleNavbar() {
-            const navbar = document.getElementById('navbar');
-            const showNavbarButton = document.getElementById('show-navbar-button');
-            navbar.classList.toggle('hidden');
-            
-            if (navbar.classList.contains('hidden')) {
-                showNavbarButton.style.display = "block";
-            } else {
-                showNavbarButton.style.display = "none";
-            }
+        const phrases = [
+            "us5 when",
+            "credits to brunys for 90% of this",
+            "idk",
+            "there is a nuclear bomb heading for your location. please seek shelter immediately",
+        ];
+
+        const paragraph = document.getElementById('dynamicParagraph');
+
+        function changeText() {
+            const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+            paragraph.textContent = randomPhrase;
         }
 
-        function changeIframeSrc(event) {
-            if (event.key === 'Enter') {
-                const url = document.getElementById('search-bar').value;
-                if (url) {
-                    document.getElementById('proxy-iframe').src = url;
-                }
-            }
-        }
+        paragraph.addEventListener('click', changeText);
+        window.onload = changeText;
     </script>
 
 </body>
