@@ -57,6 +57,11 @@ h1 {
     margin-top: 20px;
 }
 
+#search-bar-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .search-bar-home {
     padding: 15px 20px;
     width: 300px;
