@@ -1,6 +1,7 @@
 const beforeUnloadEnabled = localStorage.getItem('beforeUnloadEnabled') === 'true';
 if (beforeUnloadEnabled) {
     window.addEventListener('beforeunload', function (e) {
+        e.preventDefault();
         e.returnValue = '';
     });
 }
@@ -12,7 +13,7 @@ if (savedTitle) {
 
 const savedLogo = localStorage.getItem('siteLogo');
 if (savedLogo) {
-    const logoElement = document.querySelector('link[rel="icon"]');
+    const logoElement = document.querySelector('link[rel="icon"]'); 
     if (logoElement) {
         logoElement.href = savedLogo;
     }
