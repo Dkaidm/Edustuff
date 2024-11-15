@@ -77,6 +77,15 @@
             display: block;
         }
 
+        /* Add styling for the search bar */
+        .search-bar {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
     </style>
 </head>
 <body>
@@ -111,6 +120,9 @@
                 <i class="fas fa-expand"></i>
             </button>
         </div>
+
+        <!-- Add the search bar here -->
+        <input type="text" class="search-bar" id="search-bar" placeholder="Enter URL and press Enter" onkeydown="changeIframeSrc(event)"/>
     </div>
 
     <button class="show-navbar-button" id="show-navbar-button" onclick="toggleNavbar()">
@@ -131,6 +143,16 @@
                 showNavbarButton.style.display = "block";
             } else {
                 showNavbarButton.style.display = "none";
+            }
+        }
+
+    <script src="/static/search.js"></script>
+<script>
+        function changeIframeSrc(event) {
+            if (event.key === 'Enter') {
+                if (url) {
+                    document.getElementById('proxy-iframe').src = url;
+                }
             }
         }
     </script>
