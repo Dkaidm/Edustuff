@@ -28,8 +28,8 @@ if (panicKey && panicUrl) {
     });
 }
 
-const autocloak = localStorage.getItem('autocloak');
-if (autocloak) {
+const autocloak = localStorage.getItem('autocloakEnabled');
+if (autocloakEnabled) {
     window.onload = function() {
         const newTab = window.open('about:blank', '_blank');
         if (newTab) {
