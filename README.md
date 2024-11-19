@@ -1,3 +1,2 @@
-Credits to brunys for like 90% of this, i just added stuff to the nav bar lol
-
+Credits to brunys for /static and /embed
 (he doesnt know i stole this)
